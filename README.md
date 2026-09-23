@@ -7,4 +7,4 @@ A simple Budget Manager using command lines
 * **Balance Tracking** : Balance calculation.
 
 ## Compilation
-The project uses a simple C compilator (gcc)
+The project uses a simple C++ compilator (g++)
