@@ -2,6 +2,7 @@
 #include <vector>
 #include <limits>
 #include <string>
+#include <fstream>
 
 using namespace std;
 
@@ -133,6 +134,17 @@ int main() {
 			break;
 		case 0:
 			cout << "Fin du programme." << endl;
+			cout << "Sauvegarde des données." << endl;
+			std::ofstream fichier("budget.txt");
+			if (fichier.is_open()){
+			    fichier << budget.afficherTransactions(); 
+			    fichier << calculerSolde(); 
+			    fichier.close();
+			cout << "Sauvegarde terminée." << endl;
+			} else {
+			    std::cerr << "Erreur d'ecriture dans le fichier." << endl; 
+			}
+
 			break;
 		default:
 			cout << "Choix invalide." << endl;
