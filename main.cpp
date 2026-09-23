@@ -10,13 +10,14 @@ private:
 	string type;
 	double montant;
 	string description;
+	string categorie;
 
 public:
-	Transaction(const string &t, double m, const string& d):
-		type(t), montant(m),description(d) {}
+	Transaction(const string &t, double m, const string& d, const string& c):
+		type(t), montant(m), description(d), categorie(c) {}
 
 	void afficher() const {
-		cout << "\nTransaction: " << type << " - " << montant << " - " << description << "." << endl;
+		cout << "\nTransaction: " << categorie << " - " << type << " - " << montant << " - " << description << "." << endl;
 	}
 
 	string getType() const {
@@ -26,6 +27,10 @@ public:
 	double getMontant() const {
 		cout << montant << " euros." << endl;
 		return montant;
+	}
+	
+	string getCategorie() const {
+		return categorie;
 	}
 };
 
@@ -92,7 +97,8 @@ Transaction creerTransaction() {
 
 	double montant = lireMontant("Montant: ");
 	string description = lireTexte("Description: ");
-	Transaction x(type,montant,description);
+	string categorie = lireTexte("Catégorie: ");
+	Transaction x(type,montant,description,categorie);
 	x.afficher();
 	return x;
 }
